@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Metode {
 	public static int[] eliminateDuplicates(int[] list) {
@@ -29,6 +30,33 @@ public class Metode {
 	}
 
 	public static void sort(int m[][]) {
-
+		m = twoDimensionalSortingRow(m);
+		m = twoDimensionalSortingColumn(m);
+		
 	}
+
+	public static int[][] twoDimensionalSortingRow(int n[][]) {
+		int a = 0;
+		for (int i = 1; i < n.length; i++) {
+			if (n[i - 1][0] > n[i][0]) {
+				a = n[i - 1][0];
+				n[i - 1][0] = n[i][0];
+				n[i][0] = a;
+			}
+		}
+		return n;
+	}
+	
+	public static int[][] twoDimensionalSortingColumn(int n[][]){
+		int a = 0;
+		for (int i=1; i<n[0].length; i++) {
+			if (n[0][i-1] > n[0][i]) {
+				a = n[0][i-1];
+				n [0][i-1] = n[0][i];
+				n[0][i] = a;
+			}
+		}
+		return n;
+	}
+
 }
