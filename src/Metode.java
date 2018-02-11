@@ -1,14 +1,27 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Metode {
 	public static int[] eliminateDuplicates(int[] list) {
-		int[] niz = list;
-		return niz;
+		ArrayList<Integer> niz = new ArrayList<>();
+		for (int i=0; i<list.length; i++) {
+			if (!niz.contains(list[i])) {
+				niz.add(list[i]);
+			}
+		}
+		int[] array = new int[niz.size()];
+		for (int i=0; i<niz.size(); i++) {
+			array[i] = niz.get(i);
+		}
+		return array;
 	}
 
 	public static boolean isSorted(int[] list) {
-		boolean provjera = false;
-		return provjera;
+		for (int i=0; i<list.length; i++) {
+			if (list[i-1]>list[i]) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	//Write a method that returns a sorted string using the following header: public static String sort(String s) For example, sort("acb") returns abc.
